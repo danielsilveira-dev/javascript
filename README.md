@@ -49,7 +49,7 @@ Como alterar o texto de dentro do elemento h1?
   titulo.textContent = "Texto alterado"; // Desta forma, alteramos o texto de dentro de um elemento selecionado que armazenamos na variável "titulo"
 </script>
 ```
-
+## Replicando a validação e o cálculo do IMC para todos os pacientes
 Como percorrer uma lista de pacientes em uma tabela?
 
 Posso usar a função `querySelectorAll("")` por exemplo:  
