@@ -49,13 +49,17 @@ Como alterar o texto de dentro do elemento h1?
   titulo.textContent = "Texto alterado"; // Desta forma, alteramos o texto de dentro de um elemento selecionado que armazenamos na variável "titulo"
 </script>
 ```
+
 ## Replicando a validação e o cálculo do IMC para todos os pacientes
+
 Como percorrer uma lista de pacientes em uma tabela?
 
-Posso usar a função `querySelectorAll("")` por exemplo:  
+Posso usar a função `querySelectorAll("")` por exemplo:
 
-Tenho o html da seguinte forma:  
- - Defini todos os pacientes com a classe `paciente`.
+Tenho o html da seguinte forma:
+
+- Defini todos os pacientes com a classe `paciente`.
+
 ```html
 <tbody id="tabela-pacientes">
   <tr class="paciente" id="primeiro-paciente">
@@ -98,9 +102,12 @@ Tenho o html da seguinte forma:
   </tr>
 </tbody>
 ```
-No javascript, 
- - Criei uma variável `pacientes`, por que irei percorrer todos os pacientes.
- - Criei um loop `for()` que irá percorrer todos os pacientes que forem adicionados à tabela, `pacientes[i]`
+
+No javascript,
+
+- Criei uma variável `pacientes`, por que irei percorrer todos os pacientes.
+- Criei um loop `for()` que irá percorrer todos os pacientes que forem adicionados à tabela, `pacientes[i]`
+
 ```javascript
 <script>
   var pacientes = document.querySelectorAll(".paciente");
@@ -135,3 +142,41 @@ No javascript,
   }
 </script>
 ```
+
+## Estilos com JavaScript
+
+### Como posso deixar uma linha inteira da tabela em vermelho quando os dados não estiverem corretos?
+
+Posso fazer da seguinte forma:
+
+- Temos uma linha inteira de um dos nossos clientes;
+
+```html
+<tr class="paciente" id="primeiro-paciente">
+  <td class="info-nome">Paulo</td>
+  <td class="info-peso">140</td>
+  <td class="info-altura">2.00</td>
+  <td class="info-gordura">10</td>
+  <td class="info-imc">0</td>
+</tr>
+```
+
+Nos if's, onde eu exibo uma frase quando o dado está correto, posso colocar da seguinte maneira:
+
+```javascript
+if (peso <= 0 || peso >= 1000) {
+  console.log("Peso inválido!");
+  pesoEhValido = false;
+  tdImc.textContent = "Peso invállido!";
+  paciente.classList.add("paciente-invalido");
+}
+if (altura <= 0 || altura >= 3.0) {
+  console.log("Altura inválida!");
+  alturaEhValida = false;
+  tdImc.textContent = "Altura invállida!";
+  paciente.classList.add("paciente-invalido");
+}
+```
+Como no javascript, só criamos o lado dinâmico da página, fazemos da seguinte forma:
+ - Crio uma classe com background com a cor de erro no arquivo CSS.
+ - Adiciono no javascript a classe criada!
