@@ -52,10 +52,12 @@ Como alterar o texto de dentro do elemento h1?
 
 Como percorrer uma lista de pacientes em uma tabela?
 
-Posso usar a função `querySelectorAll("")` por exemplo:  
+Posso usar a função `querySelectorAll("")` por exemplo:
 
-Tenho o html da seguinte forma:  
- - Defini todos os pacientes com a classe `paciente`.
+Tenho o html da seguinte forma:
+
+- Defini todos os pacientes com a classe `paciente`.
+
 ```html
 <tbody id="tabela-pacientes">
   <tr class="paciente" id="primeiro-paciente">
@@ -98,9 +100,12 @@ Tenho o html da seguinte forma:
   </tr>
 </tbody>
 ```
-No javascript, 
- - Criei uma variável `pacientes`, por que irei percorrer todos os pacientes.
- - Criei um loop `for()` que irá percorrer todos os pacientes que forem adicionados à tabela, `pacientes[i]`
+
+No javascript,
+
+- Criei uma variável `pacientes`, por que irei percorrer todos os pacientes.
+- Criei um loop `for()` que irá percorrer todos os pacientes que forem adicionados à tabela, `pacientes[i]`
+
 ```javascript
 <script>
   var pacientes = document.querySelectorAll(".paciente");
@@ -133,5 +138,31 @@ No javascript,
       tdImc.textContent = imc.toFixed(2);
     }
   }
+</script>
+```
+
+## Escutando Elementos
+
+```javascript
+elemento.addEventListener("click");
+```
+
+Adicionando função em um elemento com `addEventListener()`:
+
+```html
+<meta charset="UTF-8" />
+<h1 class="titulo">Título</h1>
+<script>
+  var titulo = document.querySelector(".titulo");
+  titulo.addEventListener("click", mostraMensagem);
+
+  function mostraMensagem() {
+    console.log("Olá eu fui clicado");
+  }
+  // Ou com função anônima
+  titulo.addEventListener("click", function () {
+    // Executando uma função anônima dentro do evento de clique
+    console.log("Olá eu fui clicado");
+  });
 </script>
 ```
