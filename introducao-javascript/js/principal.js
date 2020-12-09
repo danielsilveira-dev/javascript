@@ -36,6 +36,8 @@ for (var i = 0; i < pacientes.length; i++) {
 //   console.log("Olha só posso chamar uma função anônima");
 // });
 var botaoAdicionar = document.querySelector("#adicionar-paciente");
-botaoAdicionar.addEventListener("click", function () {
-  console.log("Oi, cliquei no botão.");
+botaoAdicionar.addEventListener("click", function (event) {
+  event.preventDefault();
+
+  var form = document.querySelector("#form-adiciona");
 });
