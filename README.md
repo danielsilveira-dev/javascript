@@ -166,3 +166,60 @@ Adicionando função em um elemento com `addEventListener()`:
   });
 </script>
 ```
+
+<h2>Selecionando o formulário</h2>
+
+```javascript
+var form = document.querySelector("#form-adiciona");
+```
+
+Quando seleciono um formulário com `querySelector("")` tenho uma vantagem pois consigo selecionar todos os inputs dele.  
+Para selecionar um input, posso acessar ele pelo name por exemplo:
+
+```javascript
+console.log(form.altura);
+```
+
+Com isso, consigo imprimir o elemento referente ao `name="altura"`.
+
+Para acessar somente ao valor do campo input posso fazer da seguinte forma:
+
+```javascript
+console.log(form.altura.value);
+```
+
+<h2>Como posso inserir um novo paciente?</h2>
+
+```javascript
+// Adicionando os valores do input nas variáveis
+var nome = form.nome.value;
+var peso = form.peso.value;
+var altura = form.altura.value;
+var gordura = form.gordura.value;
+
+// Criando um novo elemento/paciente na tabela
+var pacienteTR = document.createElement("tr");
+
+// Criando os campos para as variáveis
+var nomeTd = document.createElement("td");
+var pesoTd = document.createElement("td");
+var alturaTd = document.createElement("td");
+var gorduraTd = document.createElement("td");
+var imcTd = document.createElement("td");
+
+// Armazenando os valores dos campos na variável td
+nomeTd.textContent = nome;
+pesoTd.textContent = peso;
+alturaTd.textContent = altura;
+gorduraTd.textContent = gordura;
+
+// Jogando os valores armazenados para dentro da tr
+pacienteTR.appendChild(nomeTd);
+pacienteTR.appendChild(pesoTd);
+pacienteTR.appendChild(alturaTd);
+pacienteTR.appendChild(gorduraTd);
+
+// Jogando a nova tr para a tabela
+var tabela = document.querySelector("#tabela-pacientes");
+tabela.appendChild(pacienteTR);
+```
