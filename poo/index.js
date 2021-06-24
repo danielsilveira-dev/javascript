@@ -13,6 +13,7 @@ cliente2.cpf = 88822233309;
 
 const contaCorrenteRicardo = new ContaCorrente();
 contaCorrenteRicardo.agencia = 1001;
+contaCorrenteRicardo.cliente = cliente1
 
 contaCorrenteRicardo.depositar(-100);
 contaCorrenteRicardo.depositar(100);
