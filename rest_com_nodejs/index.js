@@ -1,4 +1,4 @@
-const customExpress = require('./config/customExpress') // Importando o customExpress criado
-const app = customExpress() // Executando o modulo o app do customExpress
+const customExpress = require('./config/customExpress')
+const app = customExpress()
 
-app.listen(3000, () => console.log('servidor rodando na porta 3000'))
+app.listen(5000, () => console.log("Server On"))

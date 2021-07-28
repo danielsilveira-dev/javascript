@@ -1,15 +1,17 @@
 // Configurações do express
-const express = require('express') // Importando express
-const consign = require('consign') // Importando o consign
+const express = require('express')
+const consign = require('consign')
+const bodyParser = require('body-parser') // importando body-parser
 
-// Exportando o app configurado
 module.exports = () => {
-   const app = express()
+	const app = express()
 
-   consign() // Executando o consign
-      .include('controllers') // Informando a pasta
-      .into(app) // para o consign colocar dentro do app
+	app.use(bodyParser.urlencoded({extended: true}))
+	app.use(bodyParser.json())
 
-   return app
-   //Retornando o app configurado
+	consign() // executando o consign
+		.include('controllers') // Informando ao consign de onde pegar as rotas
+		.into(app) // Informando ao consign onde colocar as rotas
+
+	return app // retornando o próprio app configurado
 }
