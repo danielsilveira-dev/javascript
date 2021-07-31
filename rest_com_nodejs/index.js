@@ -1,13 +1,14 @@
 const customExpress = require('./config/customExpress')
 const conexao = require('./infraestrutura/conexao')
-
+const Tabelas = require('./infraestrutura/tabelas')
 conexao.connect(erro => {
-  if (erro) {
-    console.log(erro)
-  } else {
-    console.log('conectado com sucesso')
-  }
-})
-const app = customExpress()
+   if(erro){
+      console.log(erro)
+   }else{
+      console.log('conectado com sucesso')
 
-app.listen(5000, () => console.log('Server On'))
+      Tabelas.init(conexao)
+      const app = customExpress()
+      app.listen(5000, () => console.log("Server On"))
+   }
+})
